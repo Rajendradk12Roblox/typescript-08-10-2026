@@ -34,3 +34,24 @@
  * - Free shipping eligibility
 
  */
+
+const mechanicalKeyboardPrice: number = 850000;
+const wirelessMousePrice: number = 275000;
+const monitorStandPrice: number = 420000;
+const mechanicalKeyboardQuantity: number = 1;
+const wirelessMouseQuantity: number = 2;
+const monitorStandQuantity: number = 1;
+
+const voucherValue: number = 100000;
+const isPremiumMember: boolean = true;
+const rewardPointRate: number = 50000;
+const vatRate: number = 0.11;
+
+const productSubtotal: number = (mechanicalKeyboardPrice * mechanicalKeyboardQuantity) + (wirelessMousePrice * wirelessMouseQuantity) + (monitorStandPrice * monitorStandQuantity);
+const membershipDiscount: number = isPremiumMember ? productSubtotal * 0.1 : 0;
+const paymentBeforeVoucher: number = productSubtotal - membershipDiscount;
+const paymentBeforeTax: number = paymentBeforeVoucher - voucherValue;
+const vat: number = paymentBeforeTax * vatRate;
+const finalPayment: number = paymentBeforeTax + vat;
+const rewardPoints: number = Math.floor(paymentBeforeTax / rewardPointRate);
+const isEligibleForFreeShipping: boolean = isPremiumMember || paymentBeforeTax > 1500000;

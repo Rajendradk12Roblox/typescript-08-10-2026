@@ -22,3 +22,15 @@
  *  - Calculate the final payment.
 
  */
+const isPremiumMember: boolean = true;
+const products: { name: string; price: number; quantity: number }[] = [
+    { name: "Mechanical Keyboard", price: 850000, quantity: 1 },
+    { name: "Wireless Mouse", price: 275000, quantity: 2 },
+    { name: "Mouse Pad", price: 120000, quantity: 1 }
+];
+const subtotal: number = products.reduce((total, product) => total + product.price * product.quantity, 0);
+let totalItems: number = 0;
+
+for (const product of products) {
+    totalItems += product.quantity;
+}

@@ -25,3 +25,36 @@ const submissions = [
     { student: "Gita", submitted: true, score: 90 },
     { student: "Hana", submitted: true, score: 73 }
 ];
+
+let submittedCount = 0;
+let notSubmittedCount = 0;
+let passedCount = 0;
+let reviseCount = 0;
+let notSubmittedStudents: string[] = [];
+let reviseStudents: string[] = [];
+let totalScore = 0;
+
+for (let i = 0; i < submissions.length; i++) {
+    const submission = submissions[i];
+    totalScore += submission.score;
+
+    if (submission.submitted) {
+        submittedCount++;
+        if (submission.score >= 75) {
+            passedCount++;
+        } else {
+            reviseCount++;
+            reviseStudents.push(submission.student);
+        }
+    } else {
+        notSubmittedCount++;
+        notSubmittedStudents.push(submission.student);
+    }
+}
+console.log("Students who submitted: " + submittedCount);
+console.log("Students who did not submit: " + notSubmittedCount);
+console.log("Students who passed: " + passedCount);
+console.log("Students who must revise: " + reviseCount);
+console.log("Names of students who did not submit: " + notSubmittedStudents.join(", "));
+console.log("Names of students who must revise: " + reviseStudents.join(", "));
+console.log("Class average score: " + (totalScore / submissions.length).toFixed(2));

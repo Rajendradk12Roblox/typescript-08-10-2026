@@ -23,3 +23,13 @@
  * 2. Implement the hospital workflow using conditional statements.
  * 3. Display the patient's destination.
  */
+const patientName: string = "Siti Rahma";
+const isCriticalCondition: boolean = false;
+const hasAppointment: boolean = true;
+const age: number = 67;
+const hasInsurance: boolean = true;
+
+const destination: string = isCriticalCondition ? "Emergency Room"
+    : hasAppointment ? (age >= 60 ? "Priority Queue" : "Regular Queue")
+    : hasInsurance ? "Insurance Registration Counter" : "General Registration Counter";
+console.log(`Patient ${patientName} should be directed to the ${destination}.`);

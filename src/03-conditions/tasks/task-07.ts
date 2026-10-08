@@ -30,3 +30,13 @@
  * 2. Implement both screening stages.
  * 3. Display the loan decision.
  */
+const applicantName: string = "Andi Wijaya";
+const monthlyIncome: number = 10000000;
+const creditScore: number = 725;
+const existingDebt: number = 2500000;
+const isPermanentEmployee: boolean = true;
+
+const passedFirstScreening: boolean = monthlyIncome >= 8000000 && creditScore >= 700;
+const passedSecondScreening: boolean = existingDebt <= 0.3 * monthlyIncome && isPermanentEmployee;
+
+console.log(`Loan decision for ${applicantName}: ${passedFirstScreening && passedSecondScreening ? "Loan Approved" : passedFirstScreening ? "Manual Review" : "Loan Rejected"}`);
